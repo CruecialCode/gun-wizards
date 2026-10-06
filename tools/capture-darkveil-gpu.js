@@ -277,6 +277,51 @@
     }
     observation.worldDraws =
       lastWorldPass?.draws.map((d) => ({ method: d.method, args: d.args })) || [];
+    observation.enemyCandidates = [];
+    if (observation.camera && lastWorldPass) {
+      const vp = observation.camera.viewProjection;
+      const camera = observation.camera.position;
+      for (const draw of lastWorldPass.draws) {
+        if (draw.method !== 'drawIndexed' || draw.args[0] !== 4314 || draw.args[2] !== 0) continue;
+        const geometry = [...buffers.values()].find((b) => b.id === draw.vertices['0']?.buffer);
+        const binding = draw.vertices['1'];
+        if (geometry?.label !== 'Modular geometry vertices' || !binding) continue;
+        const instances = [...buffers.values()].find((b) => b.id === binding.buffer);
+        if (!instances?.data) continue;
+        const floats = new Float32Array(instances.data.buffer);
+        const start = (binding.offset || 0) / 4;
+        for (let i = 0; i < draw.args[1]; i++) {
+          const instance = draw.args[4] + i;
+          const index = start + instance * 33;
+          const position = Array.from(floats.slice(index + 12, index + 15));
+          if (position.length !== 3 || !position.every(Number.isFinite)) continue;
+          const point = [...position, 1],
+            clip = [0, 0, 0, 0];
+          for (let row = 0; row < 4; row++)
+            for (let col = 0; col < 4; col++) clip[row] += vp[col * 4 + row] * point[col];
+          const inFront = clip[3] > 0;
+          const ndc = inFront ? [clip[0] / clip[3], clip[1] / clip[3], clip[2] / clip[3]] : null;
+          observation.enemyCandidates.push({
+            kind: 'ordinary_skeleton_torso',
+            captureInstance: instance,
+            position,
+            distance: Math.hypot(...position.map((v, j) => v - camera[j])),
+            inFront,
+            inCameraFrustum: !!(
+              ndc &&
+              Math.abs(ndc[0]) <= 1 &&
+              Math.abs(ndc[1]) <= 1 &&
+              ndc[2] >= 0 &&
+              ndc[2] <= 1
+            ),
+            screenNormalized: ndc ? [(ndc[0] + 1) / 2, (1 - ndc[1]) / 2] : null,
+            occlusion: 'unknown',
+            health: null,
+            identityStability: 'Instance slots may reorder each frame; not a persistent enemy ID.',
+          });
+        }
+      }
+    }
     // These are render telemetry, not screen-visible detections or health/AI state.
     observationPending = true;
     try {
