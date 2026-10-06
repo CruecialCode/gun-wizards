@@ -1,27 +1,25 @@
 # Current status — 2026-10-06
 
-## Playable slice
+The active branch rebuilds Dark Veil using Rust, WebGPU and Rapier. The user rejected the Last Call release and explicitly requested starting over. Legacy Three.js / SpacetimeDB v0.1.0 is preserved; the existing public Pages release must not be mistaken for this reconstruction.
 
-Three.js + SpacetimeDB prototype with guest login, three rigged animated characters, practice/exploration and 2–8-player battle royale. Last Call now has a nocturnal street, shop arcades with interiors, two stair/roof terrace routes, transit arch, warm windows, rain, original illustrated posters and shared collision for architecture and furniture.
+## Implemented reconstruction
 
-Wooden partitions and ceramic ticket barriers take authoritative damage. Prepared ceramic fragments and timber slats animate locally with bounded lifetimes. Two clients agree on broken state; late subscribers receive it; rematch restores it. Small debris is cosmetic, not a gameplay obstacle. This is selective destruction, not whole-building structural collapse.
+The Rust client and authoritative cooperative server share simulation code. Browser flows include live title, First Hand selection, solo/co-op room entry, combat HUD, options, pause, defeat and five-wave respite. Core mechanics include movement, jump, dodge, fire/reload, melee, spell, enemy pursuit/attacks and wave progression. The co-op path uses real WebSocket clients rather than local fake players.
 
-Original sixteen-bar synthesized jazz plays after a user gesture, with separate music volume and exploration/combat tempo. No commercial music, ElevenLabs recordings or Higgsfield video are included. Login and selection use the live animated scene.
+The local UI reuses the downloaded table, parchment, fonts, skull renderer/mesh and music. REA inspected published JavaScript; format-aware extraction recovered embedded image/audio/font resources. Runtime GPU capture recovered arena geometry, a procedural atlas and skeleton parts. The current renderer can consume baked local captured geometry. See [asset recovery](reference/ASSET-RECOVERY.md) for exact counts, hashes, observations and reproduction boundaries.
 
-Rook has a new detailed hero revolver optimized from 1.93 million faces to 39,999 / 1.5 MB. First-person hands use rounded procedural geometry. Fast fire presses are buffered across simulation ticks. Stairs, ceilings and breakable obstruction are shared between server and client.
+## Verification and release boundary
 
-## Verification
+Nine Rust mechanics tests passed. The updated local server on port 8787 was exercised with two real WebSocket clients: the observed run recorded 25 kills and reached wave 2, and captured-world collision was tested. Browser inspection shows the actual captured world rendering through WebGPU; linear-to-display color conversion was corrected and the recovered 13,668-vertex first-person revolver now renders. These observations do not constitute complete visual or gameplay acceptance; consult the current PR/check output for the exact revision tested. No physical-controller test, minimum-hardware performance sign-off, load test, complete parity run or production deployment is claimed.
 
-- Eight mechanics tests pass: movement, fire/reload, obstruction, guard/range, elimination, destruction, elevated floors/ceilings and an interior breach route.
-- Client typecheck/build and server typecheck pass. Formatting is repeatable.
-- Four SDK clients finish a real local round; invalid input is rejected. A Jev-directed round also finishes with two recorded tactical decisions. These tests do not establish subjective fun.
-- Local and hosted destruction tests pass: two-client agreement, late subscriber snapshot and rematch reset. See docs/qa/destruction-network.json.
-- Browser inspection exercised menu→practice, mouse-capture fallback, a buffered fire press, dodge and jump. Before the final hero weapon pass the viewed district measured 57–60 FPS / 128 draw calls / 70,824 triangles / 174 geometries / 15 textures. The hero weapon view measured about 101,559 triangles / 90 draw calls / 96 geometries / 23 textures while loading/warming. These are individual desktop browser observations, not p95 or minimum-hardware guarantees.
+The pinned downloader prepares frontend assets from public static URLs. Fresh-clone setup does not recreate the optional local GPU capture automatically; it uses a fallback scene without baked geometry. Reference resources remain ignored and are not included in the open-source code contribution. Automatic Pages publication is disabled for this restart.
 
-## Known limits
+## Still incomplete
 
-The scene is a real explorable slice, but does not yet match the concept board's architectural richness or Persona/Riot production quality. Facades remain modular and repetitive; character acting, face shading, first-person reload articulation and NPC life need authored passes. Two weapons retain simpler procedural meshes. Physics debris only bounces against the base ground. No physical controller test, mobile performance sign-off, production anti-cheat, load test or full prediction replay/lag compensation is claimed.
+This is not a faithful finished 1:1 recreation yet. Exact shader/postprocess parity, comprehensive collision alignment verification, weapon/actor animation, enemy variety, bosses, all biomes, equipment/affixes, shops, progression and saves remain incomplete. The three starter weapon mechanics and portions of their presentation are reconstruction choices. Respite restores resources; it is not the original shop. Networking lacks full client prediction/reconciliation and production account infrastructure.
 
-Hosted server: `cruecial-gun-wizards` on Maincloud. Public repo: https://github.com/CruecialCode/gun-wizards . The initial release is being published through GitHub Pages; consult deployment status before claiming it is live.
+Next acceptance work should compare actual reference/rebuilt frames, then verify the complete solo loop and two-player loop on the same revision. Keep observed results distinct from intended behavior. Do not restore the Gun Wizards art direction until the maintainer requests that evolution.
 
-Next iteration should improve one hero street corner and character/weapon acting against captured in-engine frames, then gather human playtest feedback. Do not substitute generated concept images for gameplay evidence.
+## Jev verification
+
+The live bounded Jev run used eight decisions across two co-op clients, averaged 2.33 decisions per second (162–338 ms API latency), recorded two shared kills and five hit events per client. The adapter filters observations by field of view, range and captured-geometry line of sight. Aim assistance is disclosed in the test recipe. This is reconstructed-game structured-state testing, not pixel vision or proof of human fun. Original-build telemetry reports menus/resources/cooldowns, but original-game health/ammo and a locked-content playthrough remain unverified. See `reference/JEV-PLAYTESTING.md` and `qa/rust-jev.json`.

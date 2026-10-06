@@ -1,41 +1,10 @@
-name: Publish playable
+name: Legacy release publication gate
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: pages
-  cancel-in-progress: true
 jobs:
-  build:
+  preserve-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run check
-        env:
-          GITHUB_PAGES: '1'
-          VITE_SPACETIME_URI: wss://maincloud.spacetimedb.com
-          VITE_SPACETIME_DB: cruecial-gun-wizards
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - run: echo 'Automatic publication is disabled during the Rust reconstruction. Existing v0.1.0 stays preserved. A maintainer must authorize a new deployment after parity and asset-provenance review.'

@@ -1,0 +1,1035 @@
+@font-face {
+  font-family: Rye;
+  src: url(./reference-assets/Rye.ttf) format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: Cinzel;
+  src: url(./reference-assets/Cinzel.ttf) format('truetype');
+  font-display: swap;
+}
+:root {
+  font-family: 'Crimson Text', Georgia, serif;
+  color: #ddd4bb;
+  background: #080d11;
+  font-synthesis: none;
+  --gold: #b49a58;
+  --bone: #e3dcc7;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  overflow: hidden;
+}
+button,
+input {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: wait;
+}
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #e9cc7d;
+  outline-offset: 5px;
+}
+button {
+  color: inherit;
+}
+#world {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 18vw #0009;
+}
+.screen {
+  position: fixed;
+  inset: 0;
+}
+[hidden] {
+  display: none !important;
+}
+.title-screen {
+  background: linear-gradient(90deg, #05090ee8, #05090e45 43%, transparent 72%);
+}
+.title-panel {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-52%);
+  width: 350px;
+}
+.sigil {
+  font-size: 65px;
+  color: #b0aa92;
+  text-align: center;
+  width: 270px;
+  line-height: 1.1;
+  text-shadow: 0 4px 20px #000;
+}
+.eyebrow {
+  font:
+    10px 'Cinzel',
+    Georgia,
+    serif;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+.title-panel > .eyebrow {
+  width: 270px;
+  text-align: center;
+  font-size: 8px;
+  margin: 14px 0;
+}
+h1 {
+  font:
+    500 clamp(70px, 8vw, 116px)/0.86 'Cinzel',
+    Georgia,
+    serif;
+  letter-spacing: -5px;
+  margin: 24px 0 30px;
+  text-shadow: 0 4px 24px #000;
+  color: var(--bone);
+}
+.title-rule {
+  width: 235px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #aa935a, transparent);
+  margin: 30px 0;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.menu-link {
+  background: none;
+  border: 0;
+  text-align: left;
+  font-size: 24px;
+  padding: 5px 0;
+  transition:
+    color 0.16s,
+    transform 0.16s;
+  letter-spacing: 0.4px;
+}
+.menu-link span {
+  margin-left: 24px;
+  color: var(--gold);
+}
+.menu-link:hover {
+  color: #f2d796;
+  transform: translateX(5px);
+}
+#loading {
+  font-size: 13px;
+  color: #a29e90;
+  max-width: 300px;
+}
+footer {
+  position: absolute;
+  left: 36px;
+  right: 36px;
+  bottom: 22px;
+  font:
+    9px 'Cinzel',
+    serif;
+  letter-spacing: 2px;
+  color: #827d6d;
+  display: flex;
+  justify-content: space-between;
+}
+.hand-screen {
+  background: radial-gradient(ellipse at 50% 35%, #6c1823ee, #270b10fa 70%, #0d0808);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+.table-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  pointer-events: none;
+  background: repeating-linear-gradient(80deg, #fff1 0 1px, transparent 1px 4px);
+  box-shadow: inset 0 0 180px #000;
+}
+.hand-screen header {
+  text-align: center;
+  z-index: 1;
+}
+.hand-screen h2,
+dialog h2 {
+  font:
+    500 38px 'Cinzel',
+    serif;
+  margin: 9px 0;
+}
+.hand-screen header > p:last-child {
+  color: #bba895;
+  font-style: italic;
+  margin: 6px 0 25px;
+}
+.cards {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  z-index: 1;
+}
+.card {
+  width: 210px;
+  height: 310px;
+  padding: 18px 14px 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #84714b;
+  outline: 3px solid #251b11;
+  outline-offset: -7px;
+  background: radial-gradient(ellipse, #e0d4af, #b4a078);
+  color: #352a1e;
+  box-shadow: 0 12px 20px #0008;
+  transform: rotate(-5deg);
+  transition:
+    transform 0.22s,
+    box-shadow 0.22s;
+}
+.card:nth-child(2) {
+  transform: rotate(1deg);
+}
+.card:nth-child(3) {
+  transform: rotate(5deg);
+}
+.card:hover,
+.card.selected {
+  transform: translateY(-12px) rotate(0);
+  box-shadow:
+    0 0 0 2px #c9ad66,
+    0 18px 25px #0009;
+}
+.card-index {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  font:
+    12px 'Cinzel',
+    serif;
+}
+.weapon-art {
+  height: 140px;
+  display: grid;
+  place-items: center;
+  font-size: 105px;
+  line-height: 1;
+  filter: drop-shadow(3px 7px 4px #45321566);
+  color: #363a35;
+}
+.pistol {
+  transform: rotate(-25deg);
+  font-family: Georgia, serif;
+}
+.shotgun {
+  transform: rotate(-35deg);
+}
+.wand {
+  color: #605449;
+}
+.rarity {
+  font:
+    8px 'Cinzel',
+    serif;
+  letter-spacing: 1px;
+}
+.card strong {
+  font:
+    600 22px 'Cinzel',
+    serif;
+  margin: 8px 0;
+}
+.card-rule {
+  height: 1px;
+  background: #786742;
+  width: 75%;
+  margin: 4px 0 10px;
+}
+.description {
+  font-size: 13px;
+  font-style: italic;
+}
+.stats {
+  margin-top: auto;
+  font:
+    8px 'Cinzel',
+    serif;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.stats b {
+  font-size: 17px;
+}
+.embark {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+.mode-select {
+  display: flex;
+  border-bottom: 1px solid #785d3e;
+}
+.mode-select button {
+  background: transparent;
+  border: 0;
+  padding: 9px 18px;
+  color: #aa9784;
+}
+.mode-select .active {
+  color: #f2dba3;
+  border-bottom: 2px solid #c7a86a;
+}
+.gold-button {
+  border: 1px solid #a78c51;
+  background: linear-gradient(#40341f, #241e16);
+  padding: 12px 35px;
+  font:
+    13px 'Cinzel',
+    serif;
+  letter-spacing: 1.5px;
+  color: #eadbb6;
+  box-shadow: inset 0 0 0 3px #17130f;
+  transition: filter 0.15s;
+}
+.gold-button:hover {
+  filter: brightness(1.35);
+}
+.gold-button span {
+  padding-left: 20px;
+}
+.text-button {
+  background: none;
+  border: 0;
+  color: #bbaa8d;
+  font-size: 14px;
+  padding: 4px 12px;
+}
+#connection {
+  height: 15px;
+  margin: 0;
+  color: #e6b1a1;
+  font-size: 13px;
+}
+#room-label {
+  font:
+    9px 'Cinzel',
+    serif;
+  letter-spacing: 1px;
+}
+#room {
+  margin-left: 12px;
+  background: #190f0d;
+  border: 1px solid #6a5337;
+  padding: 7px 10px;
+  color: #eadbb6;
+  width: 150px;
+}
+#hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+.top-hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 27px 36px;
+  font:
+    12px 'Cinzel',
+    serif;
+  text-shadow: 0 2px 6px #000;
+}
+.top-hud > div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 5px;
+}
+.top-hud strong {
+  font-size: 24px;
+  letter-spacing: 3px;
+}
+.top-hud #remaining {
+  font:
+    14px 'Crimson Text',
+    serif;
+  color: #b5b4a4;
+}
+.crosshair {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font: 30px sans-serif;
+  text-shadow: 0 1px 4px black;
+  color: #eee;
+}
+.bottom-hud {
+  position: absolute;
+  bottom: 65px;
+  left: 36px;
+  right: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-shadow: 0 2px 5px #000;
+}
+.vitals {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.health {
+  border: 2px solid #a38d56;
+  outline: 1px solid #6e5b34;
+  outline-offset: 5px;
+  border-radius: 50%;
+  width: 91px;
+  height: 91px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(#3b161bdd, #160f14dd);
+  box-shadow: 0 0 25px #0008;
+}
+.health strong {
+  font:
+    32px 'Cinzel',
+    serif;
+}
+.health span {
+  font:
+    7px 'Cinzel',
+    serif;
+  letter-spacing: 1px;
+}
+.meters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.meters label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font:
+    7px 'Cinzel',
+    serif;
+  letter-spacing: 1.5px;
+}
+meter {
+  width: 130px;
+  height: 6px;
+  background: #181b21;
+  border: 1px solid #5e5c4a;
+  border-radius: 0;
+}
+meter::-webkit-meter-bar {
+  background: #161b23;
+  border: 0;
+  border-radius: 0;
+}
+meter::-webkit-meter-optimum-value {
+  background: #477c9d;
+}
+#stamina::-webkit-meter-optimum-value {
+  background: #b39d60;
+}
+.ammo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+.ammo > span {
+  font:
+    9px 'Cinzel',
+    serif;
+  letter-spacing: 1px;
+}
+.ammo strong {
+  font:
+    40px 'Cinzel',
+    serif;
+}
+.ammo small {
+  font-size: 20px;
+  color: #aaa28e;
+}
+.controls {
+  position: absolute;
+  bottom: 17px;
+  width: 100%;
+  text-align: center;
+  font:
+    8px 'Cinzel',
+    serif;
+  letter-spacing: 1px;
+  color: #b1ac98;
+  text-shadow: 0 1px 4px #000;
+}
+.controls span {
+  display: block;
+  margin-top: 6px;
+  font-size: 7px;
+  color: #817f73;
+}
+#pause-button {
+  position: absolute;
+  right: 25px;
+  top: 65px;
+  background: #0c101899;
+  border: 1px solid #655b3e;
+  pointer-events: auto;
+  padding: 6px 10px;
+}
+dialog {
+  max-width: 430px;
+  width: calc(100% - 40px);
+  padding: 35px;
+  border: 1px solid #8b734a;
+  background: linear-gradient(140deg, #202322, #101214);
+  color: var(--bone);
+  box-shadow: 0 20px 100px #000;
+  text-align: center;
+}
+dialog::backdrop {
+  background: #020509a8;
+  backdrop-filter: blur(5px);
+}
+dialog label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 25px 0;
+  gap: 10px;
+  font-size: 17px;
+}
+dialog input {
+  accent-color: #ba9e5d;
+  width: 100%;
+}
+dialog button {
+  display: block;
+  margin: 15px auto 0;
+}
+dialog p {
+  color: #b9b09c;
+}
+#error {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #17191d;
+  padding: 35px;
+  border: 1px solid #9d8050;
+  width: min(90%, 500px);
+  box-shadow: 0 0 200px #000;
+}
+#error button {
+  background: #423721;
+  border: 1px solid #ab915c;
+  padding: 10px 20px;
+}
+body.hit .vignette {
+  box-shadow: inset 0 0 15vw #a20d0d99;
+}
+body.firing .crosshair {
+  transform: translate(-50%, -50%) scale(1.8);
+  color: #efd39b;
+}
+@media (max-height: 740px) {
+  .hand-screen h2 {
+    font-size: 29px;
+  }
+  .hand-screen header > p:last-child {
+    margin-bottom: 18px;
+  }
+  .card {
+    height: 265px;
+    width: 190px;
+  }
+  .weapon-art {
+    height: 103px;
+  }
+  .embark {
+    margin-top: 22px;
+    gap: 8px;
+  }
+  .title-panel {
+    transform: translateY(-50%) scale(0.85);
+    transform-origin: left center;
+  }
+}
+@media (max-width: 680px) {
+  .title-panel {
+    left: 8%;
+  }
+  .cards {
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+  .card {
+    width: 30%;
+    height: 245px;
+    padding: 12px 8px;
+  }
+  .card strong {
+    font-size: 15px;
+  }
+  .description {
+    font-size: 11px;
+  }
+  .rarity,
+  .stats {
+    font-size: 6px;
+  }
+  .weapon-art {
+    font-size: 75px;
+  }
+  .stats {
+    gap: 4px;
+  }
+  .stats b {
+    font-size: 13px;
+  }
+  .bottom-hud {
+    left: 20px;
+    right: 20px;
+  }
+  .meters {
+    display: none;
+  }
+  footer {
+    left: 20px;
+    right: 20px;
+    font-size: 7px;
+  }
+  .controls {
+    font-size: 6px;
+  }
+  .hand-screen header > p:last-child {
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Recovered public reference artwork: local reuse; see ASSET-RECOVERY.md. */
+h1 {
+  font-family: Rye, Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -3px;
+  font-size: clamp(70px, 7.6vw, 106px);
+}
+.hand-screen {
+  background: #210c0e url(./reference-assets/table.png) center/cover no-repeat;
+}
+.table-grain {
+  opacity: 1;
+  background: linear-gradient(#08070866, transparent 35%, #08050888);
+  box-shadow: none;
+}
+.card {
+  background: #c6b690 url(./reference-assets/cards.png) left center/200% 100% no-repeat;
+  border: 0;
+  outline: none;
+  padding: 22px 18px;
+}
+.weapon-art {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: none;
+}
+.pistol {
+  background-image: url(./reference-assets/revolver.png);
+}
+.shotgun {
+  background-image: url(./reference-assets/items.png);
+  background-size: 310% 210%;
+  background-position: 0 0;
+}
+.wand {
+  background-image: url(./reference-assets/items.png);
+  background-size: 310% 210%;
+  background-position: 100% 0;
+}
+.card strong {
+  font-size: 19px;
+}
+.hand-screen header {
+  text-shadow: 0 2px 5px #000;
+}
+.sigil {
+  height: 44px;
+  font-size: 30px;
+  color: #b6a783;
+}
+.title-panel > .eyebrow {
+  display: none;
+}
+
+.sigil {
+  height: 145px;
+  width: 270px;
+  margin-top: -45px;
+  margin-bottom: -8px;
+}
+#menu-skull {
+  display: block;
+  width: 230px;
+  height: 145px;
+  margin: auto;
+}
+@media (max-height: 740px) {
+  .sigil {
+    height: 110px;
+    margin-top: -20px;
+  }
+  #menu-skull {
+    height: 110px;
+    width: 180px;
+  }
+}
+
+/* Reference title layout: skull, stacked lettering, framed menu actions. */
+.title-panel {
+  top: 9vh;
+  transform: none;
+  width: 310px;
+}
+.sigil {
+  height: 110px;
+  margin: 0 0 18px;
+  width: 310px;
+}
+#menu-skull {
+  width: 180px;
+  height: 110px;
+}
+h1 {
+  font-size: 90px;
+  line-height: 0.9;
+  margin: 0 0 25px;
+  letter-spacing: -3px;
+}
+.title-rule {
+  display: none;
+}
+nav {
+  gap: 12px;
+  margin-top: 26px;
+}
+.menu-link {
+  height: 54px;
+  width: 310px;
+  border: 1px solid #927842;
+  background: linear-gradient(100deg, #161a1dbb, #292a24aa, #111619aa);
+  text-align: center;
+  font-family: Cinzel, Georgia, serif;
+  font-size: 17px;
+  letter-spacing: 1px;
+  box-shadow: inset 0 0 0 4px #10171d88;
+  position: relative;
+  padding: 12px 23px;
+}
+.menu-link::before,
+.menu-link::after {
+  content: '◆';
+  position: absolute;
+  top: 19px;
+  font-size: 9px;
+  color: #b39a5f;
+}
+.menu-link::before {
+  left: 10px;
+}
+.menu-link::after {
+  right: 10px;
+}
+.menu-link span {
+  display: none;
+}
+.menu-link:hover {
+  transform: none;
+  border-color: #e2c589;
+  background: #3e3826bb;
+}
+.title-panel #loading {
+  font-size: 13px;
+  color: #a29e90;
+  text-align: center;
+  margin-top: 20px;
+}
+.card strong {
+  font-size: 16px;
+}
+.wand {
+  background-image: none;
+  position: relative;
+}
+.wand::before {
+  content: '';
+  width: 9px;
+  height: 86px;
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: rotate(30deg);
+  background: linear-gradient(90deg, #5b5041, #c5b88b, #655943);
+  border: 2px solid #786b50;
+  box-shadow: 3px 5px 4px #0004;
+}
+.wand::after {
+  content: '✦';
+  font-size: 41px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  color: #d9ccb0;
+  text-shadow: 2px 2px #655744;
+  transform: translateX(8px);
+}
+@media (max-height: 740px) {
+  .title-panel {
+    top: 6vh;
+    transform: scale(0.85);
+    transform-origin: top left;
+  }
+  .sigil {
+    height: 110px;
+    margin-top: 0;
+  }
+  #menu-skull {
+    height: 110px;
+    width: 180px;
+  }
+}
+@media (max-width: 680px) {
+  .card strong {
+    font-size: 13px;
+  }
+  .menu-link {
+    width: 280px;
+  }
+  .title-panel {
+    width: 280px;
+  }
+  .sigil {
+    width: 280px;
+  }
+}
+/* The First Hand keeps the reference's compact tabletop scale. */
+.hand-screen header h2 {
+  font-size: 26px;
+  letter-spacing: 1px;
+  margin: 5px 0 8px;
+}
+.hand-screen header > p:last-child {
+  font-size: 15px;
+  margin: 0 0 26px;
+}
+.hand-screen header > .eyebrow:empty {
+  display: none;
+}
+.cards {
+  gap: 22px;
+}
+.card {
+  width: 174px;
+  height: 245px;
+  min-height: 245px;
+  padding: 17px 15px 20px;
+  flex-shrink: 0;
+}
+.card-index {
+  font-size: 9px;
+  left: 15px;
+  top: 13px;
+}
+.weapon-art {
+  height: 103px;
+  min-height: 103px;
+  font-size: 70px;
+  flex-shrink: 0;
+}
+.rarity {
+  font-size: 6px;
+  line-height: 12px;
+  letter-spacing: 0.8px;
+}
+.card strong {
+  font-size: 13px;
+  line-height: 18px;
+  margin: 5px 0 3px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.card-rule {
+  margin: 2px 0 8px;
+  flex-shrink: 0;
+}
+.description {
+  display: none;
+}
+.stats {
+  margin-top: auto;
+  font-size: 6px;
+  line-height: 16px;
+  gap: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.stats b {
+  font-size: 13px;
+}
+.embark {
+  margin-top: 29px;
+  gap: 9px;
+}
+.wand::before {
+  height: 64px;
+  top: 29px;
+  width: 7px;
+}
+.wand::after {
+  font-size: 32px;
+  top: 10px;
+}
+.mode-select button {
+  font-size: 14px;
+  padding: 7px 15px;
+}
+.hand-screen .gold-button {
+  font-size: 11px;
+  padding: 11px 28px;
+}
+.hand-screen .text-button {
+  font-size: 13px;
+}
+@media (max-width: 800px) {
+  .cards {
+    gap: 18px;
+  }
+  .card {
+    width: 160px;
+    height: 230px;
+    min-height: 230px;
+    padding: 16px 13px 18px;
+  }
+  .weapon-art {
+    height: 91px;
+    min-height: 91px;
+  }
+  .card strong {
+    font-size: 12px;
+    line-height: 17px;
+    min-height: 34px;
+  }
+  .hand-screen header h2 {
+    font-size: 24px;
+  }
+  .hand-screen header > p:last-child {
+    font-size: 14px;
+  }
+  .stats {
+    font-size: 6px;
+    gap: 4px;
+  }
+  .stats b {
+    font-size: 12px;
+  }
+}
+@media (max-width: 550px) {
+  .cards {
+    gap: 9px;
+  }
+  .card {
+    width: calc((100vw - 62px) / 3);
+    min-width: 0;
+    height: 220px;
+    min-height: 220px;
+    padding: 16px 9px;
+  }
+  .card strong {
+    font-size: 10px;
+    line-height: 14px;
+    min-height: 28px;
+  }
+  .rarity {
+    font-size: 5px;
+    letter-spacing: 0.3px;
+  }
+  .stats {
+    gap: 3px;
+    font-size: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space: normal;
+    line-height: 12px;
+  }
+  .stats b {
+    font-size: 11px;
+  }
+  .card-index {
+    left: 11px;
+  }
+  .weapon-art {
+    height: 83px;
+    min-height: 83px;
+  }
+  .hand-screen header h2 {
+    font-size: 22px;
+  }
+}
+@media (max-height: 650px) {
+  .hand-screen {
+    justify-content: flex-start;
+    padding-top: 20px;
+  }
+  .hand-screen header > p:last-child {
+    margin-bottom: 18px;
+  }
+  .embark {
+    margin-top: 21px;
+  }
+}

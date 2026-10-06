@@ -9,3 +9,9 @@ server/spacetimedb/dist/
 server/spacetimedb/node_modules/
 server/spacetimedb/target/
 *.log
+rust/target/
+rust/web/pkg/
+
+rust/web/reference-assets/
+
+__pycache__/
