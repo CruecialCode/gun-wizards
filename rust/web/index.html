@@ -1,13 +1,126 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a1014"><title>Dark Veil</title><link rel="stylesheet" href="./style.css"></head>
-<body><canvas id="world" aria-label="Dark Veil game world"></canvas><div class="vignette"></div>
-<main id="menu" class="screen title-screen"><div class="title-panel"><div class="sigil" aria-hidden="true"><canvas id="menu-skull"></canvas></div><p class="eyebrow">BEYOND THE LIGHT</p><h1>DARK<br>VEIL</h1><div class="title-rule"></div><nav aria-label="Main menu"><button id="enter" class="menu-link" disabled>Enter the Veil <span>›</span></button><button id="options" class="menu-link">Options</button></nav><p id="loading" role="status">Loading…</p></div><footer><span>EARLY RECONSTRUCTION</span></footer></main>
-<section id="hand" class="screen hand-screen" hidden aria-labelledby="hand-title"><div class="table-grain"></div><header><p class="eyebrow"></p><h2 id="hand-title">THE FIRST HAND</h2><p>Choose your starting weapon</p></header><div class="cards" role="group" aria-label="Starting weapon">
-<button class="card selected" data-weapon="0" aria-pressed="true"><span class="card-index">I</span><span class="weapon-art pistol" aria-hidden="true"></span><span class="rarity">COMMON · SIDEARM</span><strong>Worn Handgun</strong><span class="card-rule"></span><span class="description">A steady hand. A silver answer.</span><span class="stats"><b>25</b> DAMAGE <b>12</b> ROUNDS</span></button>
-<button class="card" data-weapon="1" aria-pressed="false"><span class="card-index">II</span><span class="weapon-art shotgun" aria-hidden="true"></span><span class="rarity">COMMON · SCATTERGUN</span><strong>Worn Double Barrel</strong><span class="card-rule"></span><span class="description">Keep the darkness at arm’s length.</span><span class="stats"><b>42</b> DAMAGE <b>6</b> SHELLS</span></button>
-<button class="card" data-weapon="2" aria-pressed="false"><span class="card-index">III</span><span class="weapon-art wand" aria-hidden="true"></span><span class="rarity">COMMON · ARCANE</span><strong>Worn Bone Wand</strong><span class="card-rule"></span><span class="description">Something still whispers in the marrow.</span><span class="stats"><b>38</b> DAMAGE <b>18</b> CHARGES</span></button></div>
-<div class="embark"><div class="mode-select" role="group" aria-label="Game mode"><button id="solo" class="active" aria-pressed="true">Solo hunt</button><button id="coop" aria-pressed="false">Cooperative PvE</button></div><label id="room-label" hidden>ROOM NAME <input id="room" value="blackpine" maxlength="32" autocomplete="off"></label><button id="begin" class="gold-button">Enter Blackpine <span>↗</span></button><button id="back" class="text-button">Back</button><p id="connection" role="status"></p></div></section>
-<section id="hud" hidden aria-label="Game status"><div class="top-hud"><span id="score">0 SOULS</span><div><span class="eyebrow">BLACKPINE</span><strong id="wave">WAVE I</strong><span id="remaining">The hunt begins</span></div><span id="gold">0 GOLD</span></div><div class="crosshair" aria-hidden="true">·</div><div class="bottom-hud"><div class="vitals"><div class="health"><strong id="hp">100</strong><span>VITALITY</span></div><div class="meters"><label>ESSENCE <meter id="mana" min="0" max="100" value="100"></meter></label><label>STAMINA <meter id="stamina" min="0" max="100" value="100"></meter></label></div></div><div class="ammo"><span id="weapon-name">IRON PISTOL</span><strong id="ammo">8 <small>/ ∞</small></strong><span id="reload-hint">R · RELOAD</span></div></div><div class="controls">WASD MOVE · SPACE JUMP · SHIFT EVADE · F MELEE · Q SPELL · ESC PAUSE<span id="aim-help">CLICK TO AIM · HOLD RIGHT MOUSE IF CAPTURE IS UNAVAILABLE</span></div><button id="pause-button" aria-label="Pause game">Ⅱ</button></section>
-<dialog id="settings"><p class="eyebrow">DARK VEIL</p><h2 id="settings-title">Options</h2><label>Master volume <input id="volume" type="range" min="0" max="1" step="0.05" value="0.45"></label><label>Mouse sensitivity <input id="sensitivity" type="range" min="0.5" max="3" step="0.1" value="1"></label><button id="resume" class="gold-button">Return</button><button id="leave" class="text-button" hidden>Leave the hunt</button></dialog>
-<dialog id="round"><p class="eyebrow" id="round-label">A MOMENT OF RESPITE</p><h2 id="round-title">The Veil Relents</h2><p id="round-copy">Catch your breath. The next hunt awaits.</p><button id="next" class="gold-button">Continue the hunt</button><button id="return-menu" class="text-button">Return to title</button></dialog>
-<div id="error" role="alert" hidden><h2>The veil could not open</h2><p id="error-text"></p><button onclick="location.reload()">Try again</button></div><script type="module" src="./main.js"></script></body></html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0a1014" />
+    <title>Dark Veil</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <canvas id="world" aria-label="Dark Veil game world"></canvas>
+    <div class="vignette"></div>
+    <main id="menu" class="screen title-screen">
+      <div class="title-panel">
+        <div class="sigil" aria-hidden="true"><canvas id="menu-skull"></canvas></div>
+        <p class="eyebrow">BEYOND THE LIGHT</p>
+        <h1>DARK<br />VEIL</h1>
+        <div class="title-rule"></div>
+        <nav aria-label="Main menu">
+          <button id="enter" class="menu-link" disabled>Enter the Veil <span>›</span></button
+          ><button id="options" class="menu-link">Options</button>
+        </nav>
+        <p id="loading" role="status">Loading…</p>
+      </div>
+      <footer><span>EARLY RECONSTRUCTION</span></footer>
+    </main>
+    <section id="hand" class="screen hand-screen" hidden aria-labelledby="hand-title">
+      <div class="table-grain"></div>
+      <header>
+        <p class="eyebrow"></p>
+        <h2 id="hand-title">THE FIRST HAND</h2>
+        <p>Choose your starting weapon</p>
+      </header>
+      <div class="cards" role="group" aria-label="Starting weapon">
+        <button class="card selected" data-weapon="0" aria-pressed="true">
+          <span class="card-index">I</span><span class="weapon-art pistol" aria-hidden="true"></span
+          ><span class="rarity">COMMON · SIDEARM</span><strong>Worn Handgun</strong
+          ><span class="card-rule"></span
+          ><span class="description">A steady hand. A silver answer.</span
+          ><span class="stats"><b>25</b> DAMAGE <b>12</b> ROUNDS</span>
+        </button>
+        <button class="card" data-weapon="1" aria-pressed="false">
+          <span class="card-index">II</span
+          ><span class="weapon-art shotgun" aria-hidden="true"></span
+          ><span class="rarity">COMMON · SCATTERGUN</span><strong>Worn Double Barrel</strong
+          ><span class="card-rule"></span
+          ><span class="description">Keep the darkness at arm’s length.</span
+          ><span class="stats"><b>42</b> DAMAGE <b>6</b> SHELLS</span>
+        </button>
+        <button class="card" data-weapon="2" aria-pressed="false">
+          <span class="card-index">III</span><span class="weapon-art wand" aria-hidden="true"></span
+          ><span class="rarity">COMMON · ARCANE</span><strong>Worn Bone Wand</strong
+          ><span class="card-rule"></span
+          ><span class="description">Something still whispers in the marrow.</span
+          ><span class="stats"><b>38</b> DAMAGE <b>18</b> CHARGES</span>
+        </button>
+      </div>
+      <div class="embark">
+        <div class="mode-select" role="group" aria-label="Game mode">
+          <button id="solo" class="active" aria-pressed="true">Solo hunt</button
+          ><button id="coop" aria-pressed="false">Cooperative PvE</button>
+        </div>
+        <label id="room-label" hidden
+          >ROOM NAME <input id="room" value="blackpine" maxlength="32" autocomplete="off" /></label
+        ><button id="begin" class="gold-button">Enter Blackpine <span>↗</span></button
+        ><button id="back" class="text-button">Back</button>
+        <p id="connection" role="status"></p>
+      </div>
+    </section>
+    <section id="hud" hidden aria-label="Game status">
+      <div class="top-hud">
+        <span id="score">0 SOULS</span>
+        <div>
+          <span class="eyebrow">BLACKPINE</span><strong id="wave">WAVE I</strong
+          ><span id="remaining">The hunt begins</span>
+        </div>
+        <span id="gold">0 GOLD</span>
+      </div>
+      <div class="crosshair" aria-hidden="true">·</div>
+      <div class="bottom-hud">
+        <div class="vitals">
+          <div class="health"><strong id="hp">100</strong><span>VITALITY</span></div>
+          <div class="meters">
+            <label>ESSENCE <meter id="mana" min="0" max="100" value="100"></meter></label
+            ><label>STAMINA <meter id="stamina" min="0" max="100" value="100"></meter></label>
+          </div>
+        </div>
+        <div class="ammo">
+          <span id="weapon-name">IRON PISTOL</span><strong id="ammo">8 <small>/ ∞</small></strong
+          ><span id="reload-hint">R · RELOAD</span>
+        </div>
+      </div>
+      <div class="controls">
+        WASD MOVE · SPACE JUMP · SHIFT EVADE · F MELEE · Q SPELL · ESC PAUSE<span id="aim-help"
+          >CLICK TO AIM · HOLD RIGHT MOUSE IF CAPTURE IS UNAVAILABLE</span
+        >
+      </div>
+      <button id="pause-button" aria-label="Pause game">Ⅱ</button>
+    </section>
+    <dialog id="settings">
+      <p class="eyebrow">DARK VEIL</p>
+      <h2 id="settings-title">Options</h2>
+      <label
+        >Master volume
+        <input id="volume" type="range" min="0" max="1" step="0.05" value="0.45" /></label
+      ><label
+        >Mouse sensitivity
+        <input id="sensitivity" type="range" min="0.5" max="3" step="0.1" value="1" /></label
+      ><button id="resume" class="gold-button">Return</button
+      ><button id="leave" class="text-button" hidden>Leave the hunt</button>
+    </dialog>
+    <dialog id="round">
+      <p class="eyebrow" id="round-label">A MOMENT OF RESPITE</p>
+      <h2 id="round-title">The Veil Relents</h2>
+      <p id="round-copy">Catch your breath. The next hunt awaits.</p>
+      <button id="next" class="gold-button">Continue the hunt</button
+      ><button id="return-menu" class="text-button">Return to title</button>
+    </dialog>
+    <div id="error" role="alert" hidden>
+      <h2>The veil could not open</h2>
+      <p id="error-text"></p>
+      <button onclick="location.reload()">Try again</button>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
