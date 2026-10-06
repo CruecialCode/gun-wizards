@@ -1,0 +1,39 @@
+[package]
+name = "veil"
+version = "0.2.0"
+edition = "2021"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "veil-server"
+path = "src/server.rs"
+required-features = ["server"]
+
+[features]
+default = []
+server = ["dep:axum", "dep:tokio", "dep:futures-util", "dep:tower-http"]
+
+[dependencies]
+glam = { version = "0.29", features = ["serde"] }
+rapier3d = { version = "0.26", features = ["enhanced-determinism"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+bytemuck = { version = "1", features = ["derive"] }
+wgpu = { version = "24.0.5", features = ["webgpu"] }
+axum = { version = "0.8", features = ["ws"], optional = true }
+tokio = { version = "1", features = ["full"], optional = true }
+futures-util = { version = "0.3", optional = true }
+tower-http = { version = "0.6", features = ["fs"], optional = true }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "=0.2.100"
+wasm-bindgen-futures = "=0.4.50"
+web-sys = { version = "=0.3.77", features = ["Window", "Document", "HtmlCanvasElement", "console"] }
+console_error_panic_hook = "0.1"
+
+[profile.release]
+opt-level = 2
+lto = "thin"

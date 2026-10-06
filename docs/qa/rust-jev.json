@@ -1,0 +1,393 @@
+{
+  "adapter": "Rust Dark Veil reconstruction / structured observations",
+  "model": "jev-latest",
+  "observation": "Own resources plus FOV and recovered-triangle line-of-sight filtered enemies; no pixels or hidden enemy positions.",
+  "limits": {
+    "maxDecisions": 8,
+    "actionMs": 200,
+    "maxRuntimeMs": 45000,
+    "requestTimeoutMs": 5000
+  },
+  "decisions": [
+    {
+      "decision": 0,
+      "elapsedMs": 344,
+      "latencyMs": 338,
+      "choices": [
+        "aim_and_fire",
+        "aim_and_fire"
+      ],
+      "observations": [
+        {
+          "health": 100,
+          "ammo": 12,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": true,
+          "wave": 1,
+          "kills": 0,
+          "visible": [
+            {
+              "id": 104,
+              "distance": 15.8,
+              "bearing": 0.93,
+              "elevation": -0.04,
+              "kind": "skeleton",
+              "health": 100
+            },
+            {
+              "id": 102,
+              "distance": 22.1,
+              "bearing": -0.15,
+              "elevation": -0.03,
+              "kind": "skeleton",
+              "health": 100
+            }
+          ]
+        },
+        {
+          "health": 100,
+          "ammo": 12,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": true,
+          "wave": 1,
+          "kills": 0,
+          "visible": [
+            {
+              "id": 102,
+              "distance": 21.9,
+              "bearing": -0.08,
+              "elevation": -0.03,
+              "kind": "skeleton",
+              "health": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "decision": 1,
+      "elapsedMs": 816,
+      "latencyMs": 267,
+      "choices": [
+        "aim_and_fire",
+        "aim_and_fire"
+      ],
+      "observations": [
+        {
+          "health": 100,
+          "ammo": 12,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": true,
+          "wave": 1,
+          "kills": 0,
+          "visible": [
+            {
+              "id": 104,
+              "distance": 14.5,
+              "bearing": 0.48,
+              "elevation": -0.04,
+              "kind": "skeleton",
+              "health": 100
+            },
+            {
+              "id": 102,
+              "distance": 20.7,
+              "bearing": -0.6,
+              "elevation": -0.03,
+              "kind": "skeleton",
+              "health": 50
+            }
+          ]
+        },
+        {
+          "health": 100,
+          "ammo": 11,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": false,
+          "wave": 1,
+          "kills": 0,
+          "visible": [
+            {
+              "id": 102,
+              "distance": 20.6,
+              "bearing": 0,
+              "elevation": -0.03,
+              "kind": "skeleton",
+              "health": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "decision": 2,
+      "elapsedMs": 1200,
+      "latencyMs": 181,
+      "choices": [
+        "aim_and_fire",
+        "aim_and_fire"
+      ],
+      "observations": [
+        {
+          "health": 100,
+          "ammo": 11,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": false,
+          "wave": 1,
+          "kills": 1,
+          "visible": [
+            {
+              "id": 104,
+              "distance": 13.4,
+              "bearing": 0.03,
+              "elevation": -0.04,
+              "kind": "skeleton",
+              "health": 50
+            }
+          ]
+        },
+        {
+          "health": 100,
+          "ammo": 10,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": false,
+          "wave": 1,
+          "kills": 1,
+          "visible": []
+        }
+      ]
+    },
+    {
+      "decision": 3,
+      "elapsedMs": 1664,
+      "latencyMs": 263,
+      "choices": [
+        "turn_left",
+        "turn_left"
+      ],
+      "observations": [
+        {
+          "health": 100,
+          "ammo": 10,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": false,
+          "wave": 1,
+          "kills": 2,
+          "visible": []
+        },
+        {
+          "health": 100,
+          "ammo": 10,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": true,
+          "wave": 1,
+          "kills": 2,
+          "visible": []
+        }
+      ]
+    },
+    {
+      "decision": 4,
+      "elapsedMs": 2041,
+      "latencyMs": 174,
+      "choices": [
+        "aim_and_fire",
+        "aim_and_fire"
+      ],
+      "observations": [
+        {
+          "health": 100,
+          "ammo": 10,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": true,
+          "wave": 1,
+          "kills": 2,
+          "visible": [
+            {
+              "id": 101,
+              "distance": 5.7,
+              "bearing": 0.53,
+              "elevation": -0.11,
+              "kind": "skeleton",
+              "health": 100
+            }
+          ]
+        },
+        {
+          "health": 100,
+          "ammo": 10,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": true,
+          "wave": 1,
+          "kills": 2,
+          "visible": []
+        }
+      ]
+    },
+    {
+      "decision": 5,
+      "elapsedMs": 2419,
+      "latencyMs": 177,
+      "choices": [
+        "aim_and_fire",
+        "aim_and_fire"
+      ],
+      "observations": [
+        {
+          "health": 100,
+          "ammo": 9,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": false,
+          "wave": 1,
+          "kills": 2,
+          "visible": [
+            {
+              "id": 101,
+              "distance": 5.6,
+              "bearing": 0.04,
+              "elevation": -0.11,
+              "kind": "skeleton",
+              "health": 100
+            }
+          ]
+        },
+        {
+          "health": 100,
+          "ammo": 10,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": true,
+          "wave": 1,
+          "kills": 2,
+          "visible": []
+        }
+      ]
+    },
+    {
+      "decision": 6,
+      "elapsedMs": 2872,
+      "latencyMs": 252,
+      "choices": [
+        "aim_and_fire",
+        "aim_and_fire"
+      ],
+      "observations": [
+        {
+          "health": 100,
+          "ammo": 8,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": false,
+          "wave": 1,
+          "kills": 2,
+          "visible": [
+            {
+              "id": 101,
+              "distance": 5.6,
+              "bearing": -0.04,
+              "elevation": -0.11,
+              "kind": "skeleton",
+              "health": 100
+            }
+          ]
+        },
+        {
+          "health": 100,
+          "ammo": 10,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": true,
+          "wave": 1,
+          "kills": 2,
+          "visible": []
+        }
+      ]
+    },
+    {
+      "decision": 7,
+      "elapsedMs": 3236,
+      "latencyMs": 162,
+      "choices": [
+        "aim_and_fire",
+        "aim_and_fire"
+      ],
+      "observations": [
+        {
+          "health": 100,
+          "ammo": 7,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": false,
+          "wave": 1,
+          "kills": 2,
+          "visible": [
+            {
+              "id": 101,
+              "distance": 5.5,
+              "bearing": -0.04,
+              "elevation": -0.11,
+              "kind": "skeleton",
+              "health": 100
+            }
+          ]
+        },
+        {
+          "health": 100,
+          "ammo": 10,
+          "mana": 100,
+          "stamina": 100,
+          "weapon": 0,
+          "ready": true,
+          "wave": 1,
+          "kills": 2,
+          "visible": []
+        }
+      ]
+    }
+  ],
+  "result": "completed",
+  "elapsedMs": 3439,
+  "actualDecisionsPerSecond": 2.326257633032858,
+  "final": [
+    {
+      "hp": 100,
+      "ammo": 6,
+      "wave": 1,
+      "kills": 2,
+      "receivedHitEvents": 5
+    },
+    {
+      "hp": 100,
+      "ammo": 10,
+      "wave": 1,
+      "kills": 2,
+      "receivedHitEvents": 5
+    }
+  ]
+}

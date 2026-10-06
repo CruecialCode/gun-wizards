@@ -1,101 +1,71 @@
-# GUN WIZARDS
-### Last Call · first playable
+# Dark Veil reconstruction
 
-Good guns. Bad company. A first-person, anime-inspired arcane frontier where handcrafted pistols meet quicksteps, slides, close-range strikes and last-wizard-standing showdowns.
+The active project is a **Rust + WebGPU + Rapier** reconstruction of [Dark Veil](https://dark-veil.dimillian.chatgpt.site/), with solo and cooperative PvE. Reproduce the reference before introducing Gun Wizards designs. The former Three.js / SpacetimeDB game is preserved as **v0.1.0** and in the legacy directories; it is not the current design target.
 
-[Play Gun Wizards](https://cruecialcode.github.io/gun-wizards/) · [Current scope and verification](docs/STATUS.md)
+This is an incomplete reconstruction, not the original editable source or a finished 1:1 recreation. See [current evidence and limitations](docs/STATUS.md).
 
-![Last Call art-direction target — concept art, not a gameplay screenshot](docs/art/occult-jazz-noir-target.png)
+## Give this repository to your agent
 
-Built with **Three.js + TypeScript + SpacetimeDB**. Three original animated wizards, three Blender-authored pistols, an explorable night district with interiors, roof terraces and breakable cover, and real server-authoritative multiplayer rooms for 2–8 players.
+> Read AGENTS.md, set up the active Rust game, safely pull the latest changes, and launch it. Handle branches, checks, commits, and pull requests. Preserve unrelated work. I want to work on: [your idea].
 
-## Just give this repo to your agent
+GitHub sign-in belongs to the contributor: `gh auth login`. Never paste account passwords or API keys into chat. No paid asset service or SpacetimeDB account is required for the active game.
 
-> Read AGENTS.md in this repository. Set up my local development environment, pull the latest changes safely, and launch Gun Wizards. Handle Git branches, checks, commits, and pull requests for me. Explain only what I need to decide. I want to work on: [your idea].
+## Local setup
 
-Your agent can do the setup and contribution work. GitHub sign-in still belongs to you; never give an agent your password. Start with a small change: a reload sound, a new street prop, a character line, or the length of a dodge.
-
-## Run locally
-
-Prerequisites: Node.js 22 or newer, Git, and [SpacetimeDB CLI 2.10.2](https://spacetimedb.com/docs/). [GitHub CLI](https://cli.github.com/) helps your agent contribute. Blender is only needed to rebuild assets. Paid APIs are **not** needed to run or contribute.
+Install Git, a current stable Rust toolchain through [rustup](https://rustup.rs/), Python 3, and Node 22+ for the network test. GitHub CLI lets your agent manage contributions.
 
 ```sh
 git clone https://github.com/CruecialCode/gun-wizards.git
 cd gun-wizards
-npm run setup
+rustup target add wasm32-unknown-unknown
+cargo install wasm-bindgen-cli --version 0.2.100 --locked
+python3 tools/fetch-darkveil-reference.py
+cargo build --manifest-path rust/Cargo.toml --locked --release --target wasm32-unknown-unknown
+wasm-bindgen rust/target/wasm32-unknown-unknown/release/veil.wasm --target web --out-dir rust/web/pkg
+cargo run --manifest-path rust/Cargo.toml --locked --features server --bin veil-server
 ```
 
-Terminal 1, leave running:
+Open **http://127.0.0.1:8787** in a WebGPU-capable browser. Select **Enter the Veil**, choose a weapon, then **Solo hunt** or **Cooperative PvE**. Co-op clients enter the same room name; the first client owns starting/continuing the shared hunt. Each connection receives its own player identity. There are no account passwords or persistent character accounts yet.
 
-```sh
-npm run server:start
-```
+The downloader verifies pinned hashes and prepares locally reused reference artwork and music. These files remain ignored and are not redistributed under this repository's license. `python3 tools/fetch-darkveil-reference.py --offline` verifies a cached setup. The optional captured world/actor geometry is a separate local research artifact; a fresh clone does **not** reproduce that captured environment from these commands alone. See [asset recovery](docs/reference/ASSET-RECOVERY.md) for capture evidence and baking instructions. Missing captured geometry uses the reconstruction's fallback scene.
 
-Terminal 2:
-
-```sh
-npm run server:publish
-npm run dev
-```
-
-Open **http://127.0.0.1:5173**. Enter a callsign and sign in. A server-issued guest identity is saved in that browser; this is a real authenticated SpacetimeDB connection, not a password account. Sign-out discards the browser credential. Cross-device account recovery and social login are future work.
-
-Choose **Explore Last Call** for solo testing. Choose **Battle Royale**, enter a shared room code, and join. A second independent browser profile/device can join the same room; any participant can start once at least two are present. Last survivor wins. Dead players wait for the result; the next round resets everyone. Tabs in one profile share a guest identity: use a private window or another browser for a second player.
-
-**Offline practice** works without a server. Multiplayer never silently falls back to fake/local players.
-
-### Playing across computers
-
-Both clients must point to the same SpacetimeDB database. For a trusted LAN, run the server listening on `0.0.0.0:3000`, set `VITE_SPACETIME_URI=ws://YOUR-LAN-IP:3000` in `.env.local`, and start Vite with `npm run dev -- --host 0.0.0.0`. Keep this development setup on your trusted network. For internet play, publish the module to your own SpacetimeDB host and use HTTPS/WSS; see [deployment](docs/DEPLOYMENT.md).
+Default hosting binds only to localhost. Changing `VEIL_BIND` to expose the server requires a deliberate hosting decision; this prototype does not provide production account authentication, TLS termination, or deployment hardening. No approximation is automatically deployed over the old public release.
 
 ## Controls
 
-| Action | Keyboard / mouse | Standard controller |
-| --- | --- | --- |
-| Move / look | WASD / mouse | Left / right stick |
-| Fire / aim | Left / right mouse | RT / LT (ZR / ZL) |
-| Sprint | Shift | Left stick click |
-| Jump / automatic stair step | Space | Bottom face button |
-| Crouch / sprint slide | C or Ctrl | Right face button |
-| Quickstep | Q | LB / L |
-| Close-range strike | E | RB / R |
-| Guard | F | Right stick click |
-| Reload | R | Left face button |
-| Inspect pistol | V | Top face button |
-| Reset practice | T | Keyboard T |
-| Release mouse / settings | Esc | Settings button in UI |
+| Action | Input |
+| --- | --- |
+| Move | WASD |
+| Look | Mouse; arrow keys as fallback |
+| Fire | Left mouse or Enter |
+| Jump | Space |
+| Evade | Shift |
+| Melee | F |
+| Spell | Q |
+| Reload | R |
+| Pause / options | Escape |
 
-Sensitivity, ADS multiplier, deadzone, vibration, camera motion and volume are adjustable. Standard Gamepad API mappings are implemented; physical Xbox/Switch Pro verification remains necessary.
+If an embedded browser rejects pointer capture, hold right mouse to look. Volume and sensitivity are adjustable. Controller and touch support are not implemented in this reconstruction. Pausing co-op stops your input; the shared world continues.
 
-## Checks and contribution
+## Verify and contribute
 
 ```sh
-npm run check                 # deterministic mechanics + typecheck + production build
-npm run server:build          # compile the authoritative module
-npm run bindings              # after schema/reducer changes
-npm run test:destruction      # replicated breach, late subscriber and rematch reset
-npm run format:check          # consistent source formatting
-npm run test:multiplayer      # four real local connections; requires server
-npm run test:jev              # optional Jev-directed clients; requires TYPESAFE_API_KEY
+cargo test --manifest-path rust/Cargo.toml --locked --features server
+cargo build --manifest-path rust/Cargo.toml --locked --release --target wasm32-unknown-unknown
+node --check rust/web/main.js
+node tools/test-rust-coop.mjs  # requires the Rust server on port 8787
 ```
 
-Read [AGENTS.md](AGENTS.md) for the automatic Git workflow and [CONTRIBUTING.md](CONTRIBUTING.md) for the human version. Open a focused PR; CI checks the code. Nobody needs to learn Git terminology before proposing a game idea.
+Inspect the actual game after visual or input changes. Passing tests establish only the assertions they check, not visual fidelity or fun. Agents should follow [AGENTS.md](AGENTS.md): focused branch, checks, commit, push, PR, and CI review. Merging and deploying still require maintainer authorization.
 
 ## Project map
 
-- `src/`: renderer, game loop, UI, controller input, sound, and network adapter.
-- `shared/simulation.ts`: deterministic movement, collision and combat rules.
-- `server/spacetimedb/`: authoritative reducers, identities, rooms, scheduled simulation.
-- `public/assets/`: committed runtime art; no API calls required.
-- `tools/`: reproducible Blender assets, setup and multiplayer testing.
-- `docs/`: design, source research, asset provenance, verification and release limitations.
+- `rust/src/simulation.rs`: shared solo/server mechanics, Rapier physics, enemies, combat and waves.
+- `rust/src/browser.rs`, `renderer.rs`, `scene.rs`: WASM bridge, WebGPU renderer and scene data.
+- `rust/src/server.rs`: authoritative cooperative room server.
+- `rust/web/`: browser shell, menu, HUD, controls and audio bridge.
+- `tools/fetch-darkveil-reference.py`, `recover-darkveil-assets.py`, `bake-darkveil-gpu.py`: reproducible acquisition, extraction and local GPU-data baking.
+- `docs/reference/`: observations, recovery provenance and limitations.
+- `src/`, `shared/`, `server/spacetimedb/`, `public/`: preserved **legacy v0.1.0**, not the active implementation. Root npm scripts still target that legacy game.
 
-This is an early playable prototype, not a production live-service backend. See [current status](docs/STATUS.md) for verified scope and remaining work.
-
-Code: MIT. Original project art: CC BY 4.0; see [asset provenance](docs/ASSETS.md). External libraries retain their licenses.
-
-### World-building research
-
-[Last Call production plan](docs/WORLD-PRODUCTION.md) covers the Persona-inspired district, selective destructibility, original jazz soundtrack and asset workflow. Run `npm run research:fracture` for the repeatable three-piñata CPU feasibility measurement. This benchmark is an offline research tool. Runtime destruction uses prepared fragments and server-owned cover state.
-
-The soundtrack is an original synthesized sixteen-bar jazz arrangement. Music has a separate volume control. Mouse capture unavailable in an embedded browser? Hold right mouse to look or use arrow keys; Enter fires. Use a desktop browser for full pointer lock.
+Our independently authored code is MIT. Downloaded reference code, art, music, fonts, geometry and captures retain their upstream provenance; redistribution rights have not been established. The former Gun Wizards original-art license does not apply to Dark Veil material.

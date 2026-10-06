@@ -1,17 +1,21 @@
-name: Checks
+name: Rust reconstruction checks
 on: [push, pull_request]
 permissions:
   contents: read
 jobs:
-  client:
+  rust:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run check
-      - run: npm ci --prefix server/spacetimedb
-      - run: npx tsc --noEmit --project server/spacetimedb/tsconfig.json
+      - run: cargo test --manifest-path rust/Cargo.toml --locked --features server
+      - run: cargo build --manifest-path rust/Cargo.toml --locked --release --target wasm32-unknown-unknown
+      - run: cargo install wasm-bindgen-cli --version 0.2.100 --locked
+      - run: wasm-bindgen rust/target/wasm32-unknown-unknown/release/veil.wasm --target web --out-dir rust/web/pkg
+      - run: node --check rust/web/main.js
+      # Reference downloads/captures are intentionally not fetched or redistributed.

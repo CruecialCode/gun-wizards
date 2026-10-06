@@ -1,11 +1,13 @@
-# Make something cool
+# Contributing to the Dark Veil reconstruction
 
-Tell your agent what you want to change and point it at AGENTS.md. It should get the latest code, make a separate branch, launch the game, test the change, and open a pull request for you.
+Give your agent this repository and describe the player-visible change you want. Ask it to read [AGENTS.md](AGENTS.md) and follow the active Rust setup in [README.md](README.md). You can focus on the game; the agent handles safe syncing, a focused branch, checks, commits and a pull request.
 
-Keep changes small enough to play and review. Describe what the player should feel or see. A short before/after clip is more useful than a long explanation for movement and animation work.
+Use one branch per coherent change. Preserve other contributors' work. If you lack repository write access, fork it with GitHub CLI and contribute from your fork. Complete `gh auth login` yourself when needed; never send credentials in chat or invent a contributor's Git identity.
 
-Everyone starts somewhere. Ask questions in an issue. Be kind, give specific feedback, and treat a failed experiment as useful information.
+The active target is a faithful Dark Veil reconstruction with solo and cooperative PvE. Gun Wizards/Last Call v0.1.0 remains preserved but is no longer the design target. Read the reference observations before changing visuals or mechanics, and distinguish direct evidence from reconstruction guesses.
 
-No paid tools are required. All runtime assets are in the repo. Never share private keys or account credentials. A maintainer reviews pull requests before merging.
+Before a PR, run the Rust tests and WASM build described in README.md. For network changes, run the Rust server and `node tools/test-rust-coop.mjs`. Inspect actual gameplay for visual, animation or input changes. Explain what changed, the observed checks, and any remaining mismatch. Do not claim visual parity or fun from a build result.
 
-By contributing, you agree to license code under MIT and original art under CC BY 4.0. Only submit work you have permission to share, and document generated or third-party assets in docs/ASSETS.md.
+Downloaded reference files, captured geometry, music, original binaries and `rust/web/reference-assets/` stay ignored. The pinned acquisition tooling is versioned; its fetched content is not automatically licensed for redistribution. Keep secrets and private API responses out of commits. Stage explicit paths, review the diff, and use a short imperative commit message.
+
+Open a PR, inspect CI, and fix failures introduced by the change. Do not merge or deploy without maintainer authorization. The maintainer reviews the game design; agents handle the repository mechanics.

@@ -1,24 +1,17 @@
-# Development and deployment
+# Running and publishing the Rust reconstruction
 
-The public first playable uses GitHub Pages for static files and SpacetimeDB Maincloud for multiplayer. Browser configuration contains only a public endpoint and database name. No service API keys belong in the client.
+The active build uses Rust, WebGPU and Rapier, with an authoritative Rust WebSocket server. See [README](../README.md) for exact setup, WASM build and local run commands. Old Three.js/SpacetimeDB deployment instructions are retained in v0.1.0 Git history; they do not deploy this reconstruction.
 
-## Your own deployment
+## Local development
 
-1. Sign in with `spacetime login`.
-2. Publish your own module: `spacetime publish --server maincloud --module-path server/spacetimedb YOUR-DATABASE`.
-3. Set `VITE_SPACETIME_URI=wss://maincloud.spacetimedb.com` and `VITE_SPACETIME_DB=YOUR-DATABASE` in the build environment.
-4. Run `npm run check`, then deploy `dist/` to a static HTTPS host. For a repository subpath, set the Vite `base` and use `import.meta.env.BASE_URL` for asset URLs.
-5. The included Pages workflow targets this repository and database. Forks must change the database and base path to their own values before enabling deployment.
-6. Validate two independent client identities, combat, elimination and a rematch against the hosted endpoint.
+`cargo run --manifest-path rust/Cargo.toml --locked --features server --bin veil-server` serves `rust/web/` and `/ws` at **http://127.0.0.1:8787**. Build the WASM package first. The same-origin connection avoids configuring service keys in the browser. Solo does not require a remote multiplayer service; co-op requires the Rust server.
 
-A merge to this repository's main branch publishes the static client automatically. Server publishing is explicit, not part of untrusted pull-request CI. Never expose publish credentials to PR workflows. Schema-breaking changes require a migration plan; do not use destructive database reset flags on shared databases.
+The default bind is localhost. `VEIL_BIND` can select an address and port for an explicitly authorized test. Two clients need the same reachable server and room name. On a trusted LAN, the host must deliberately expose its bind address; do not widen network access automatically. Browser WebGPU generally requires a secure context, so remote access needs appropriate HTTPS/WSS hosting rather than assuming arbitrary plain-HTTP LAN URLs will work.
 
-## Authentication
+## Release gate
 
-The prototype uses server-issued guest JWTs retained in browser localStorage. Callsigns are display names, not unique accounts or passwords. Losing that browser data loses that guest identity. A full release needs recoverable OIDC accounts, session ownership, moderation and abuse controls. Do not collect email addresses or passwords with a cosmetic login form.
+Automatic GitHub Pages publication is disabled during reconstruction. The existing public v0.1.0 is preserved and is not evidence that the Rust game has shipped. Static Pages hosting alone cannot host the Rust cooperative server.
 
-## Operational limits
+Before publishing, the maintainer must authorize the release, verify the intended visual/gameplay scope, and resolve redistribution rights for upstream assets. The current local reconstruction uses downloaded reference art/music and captured geometry that are ignored and not included in the repository's code license. CI builds code without downloading or republishing those materials.
 
-Eight players per room; a scheduled 30 Hz reducer simulates active rooms. All prototype room state is publicly subscribable. This is not private matchmaking. The module validates input shape and bounds, ignores stale input, owns damage and cooldowns, and prevents late joining an active round. It is not a substitute for production anti-cheat, per-connection rate limits or load testing.
-
-The public database contains no billing, contact, or sensitive profile data. Guest names and gameplay are visible. Do not use private information as your callsign or room code.
+A production host also needs deliberate TLS, origin/access policy, operational monitoring, resource limits and account/abuse handling. The current room identity is connection-based, not a persistent account system. These are incomplete production capabilities, not implied features of the prototype.

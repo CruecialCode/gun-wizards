@@ -1,0 +1,510 @@
+{
+  "retrieved": "2026-10-06",
+  "license": "Not established; reference assets are not covered by repository MIT license.",
+  "assets": [
+    {
+      "file": "loader.js",
+      "url": "https://dark-veil.dimillian.chatgpt.site/loader.js",
+      "size": 2922,
+      "sha256": "df9edb91dead57b73924928ee698ffc3ba9cf7df502e74bda0b88826d2889499"
+    },
+    {
+      "file": "darkveil.js",
+      "url": "https://dark-veil.dimillian.chatgpt.site/darkveil.js",
+      "size": 112841,
+      "sha256": "3590c536e6bb369773f36a4579ce7ba463ecd84bf96fbf409f36152adae40e28"
+    },
+    {
+      "file": "style.css",
+      "url": "https://dark-veil.dimillian.chatgpt.site/style.css",
+      "size": 8294,
+      "sha256": "cede60d48c0f13f98ae6df36b06f2b393b1f1c3a028d439ebeb705acd2bb03d6"
+    },
+    {
+      "file": "menu-skull.js",
+      "url": "https://dark-veil.dimillian.chatgpt.site/menu-skull.js",
+      "size": 6137,
+      "sha256": "d61367e849fc1146f31d65ee151449ef85572b5c28548c5fa3eeabfb5d7abb2c"
+    },
+    {
+      "file": "menu-skull.json",
+      "url": "https://dark-veil.dimillian.chatgpt.site/menu-skull.json",
+      "size": 758232,
+      "sha256": "7d70354f288bd2c3f0d3ff47558ed74ae4c1beaa0b2be13b407856287adbb24f"
+    },
+    {
+      "file": "menu-skull.png",
+      "url": "https://dark-veil.dimillian.chatgpt.site/menu-skull.png",
+      "size": 122446,
+      "sha256": "9378c856907f5ef4f1e5227a0ae820b9f9724d3dbed94758618f53d84221095a"
+    },
+    {
+      "file": "wasm-loader.js",
+      "url": "https://dark-veil.dimillian.chatgpt.site/wasm-loader.js",
+      "size": 1295,
+      "sha256": "a999d0b81bbd8867d5180440a804bb9e8e92544fdc5e122be94234de232bbf2c"
+    },
+    {
+      "file": "og.png",
+      "url": "https://dark-veil.dimillian.chatgpt.site/og.png",
+      "size": 2398327,
+      "sha256": "be4ac307dbd741a1f5d1685a3f0c85358d2b940100e228cc98e088b251dade71"
+    },
+    {
+      "file": "favicon.ico",
+      "url": "https://dark-veil.dimillian.chatgpt.site/favicon.ico",
+      "size": 8900,
+      "sha256": "29ed17258f61093c00ea611182c92f5d32dddf93ce9bc91979b79f7151668ca6"
+    },
+    {
+      "file": "favicon-32.png",
+      "url": "https://dark-veil.dimillian.chatgpt.site/favicon-32.png",
+      "size": 2647,
+      "sha256": "942fad052755d70d8dc4cd9d8de8020e22c6748d767da5296ece2b30b7d212b3"
+    },
+    {
+      "file": "favicon-16.png",
+      "url": "https://dark-veil.dimillian.chatgpt.site/favicon-16.png",
+      "size": 845,
+      "sha256": "828ba6eeb6a938ad038f3f9ff319b0ed480fd9ae4fe715bb2b8e5651bb297736"
+    },
+    {
+      "file": "apple-touch-icon.png",
+      "url": "https://dark-veil.dimillian.chatgpt.site/apple-touch-icon.png",
+      "size": 59154,
+      "sha256": "a8b34bd4ccdfc2901262b22db558d4eb5eb7165f4e44539cd2f2032d87f554e7"
+    },
+    {
+      "file": "fonts/Rye.ttf",
+      "url": "https://dark-veil.dimillian.chatgpt.site/fonts/Rye.ttf",
+      "size": 183244,
+      "sha256": "b7edee5e615ae1b6b07e9d030c1309152bf3672a0e8a2a46293e273730f5adba"
+    },
+    {
+      "file": "snippets/darkveil-4615b08805223d8d/web/leaderboard.js",
+      "url": "https://dark-veil.dimillian.chatgpt.site/snippets/darkveil-4615b08805223d8d/web/leaderboard.js",
+      "size": 8267,
+      "sha256": "756832ac2ced3f771199b3479acf01bb58b60caed15a97118c477676113b92c8"
+    },
+    {
+      "file": "snippets/darkveil-4615b08805223d8d/web/music.js",
+      "url": "https://dark-veil.dimillian.chatgpt.site/snippets/darkveil-4615b08805223d8d/web/music.js",
+      "size": 9210,
+      "sha256": "e6130132608c08a741ec61c14718223e1c7cc636b717852355a6d6ff53ab00d9"
+    },
+    {
+      "file": "snippets/darkveil-4615b08805223d8d/web/collection.js",
+      "url": "https://dark-veil.dimillian.chatgpt.site/snippets/darkveil-4615b08805223d8d/web/collection.js",
+      "size": 7053,
+      "sha256": "cff4a8c6f3eaf39517d3d0f21bd45d9c74c295f46e41b591f473764fb96f50d2"
+    },
+    {
+      "file": "snippets/darkveil-4615b08805223d8d/web/touch.js",
+      "url": "https://dark-veil.dimillian.chatgpt.site/snippets/darkveil-4615b08805223d8d/web/touch.js",
+      "size": 12656,
+      "sha256": "acfe9c15e2673c8f3f07206dc9d02dd4b64882c1df7f107fd3c701d146ad73f7"
+    },
+    {
+      "file": "snippets/darkveil-4615b08805223d8d/web/input.js",
+      "url": "https://dark-veil.dimillian.chatgpt.site/snippets/darkveil-4615b08805223d8d/web/input.js",
+      "size": 9565,
+      "sha256": "8ad0a31aeb6b1029c43b4646c7094535974e9cb129dcb277ffdd5bb903c736c5"
+    },
+    {
+      "file": "music/blackpowder.mp3",
+      "url": "https://dark-veil.dimillian.chatgpt.site/music/blackpowder.mp3",
+      "size": 2305296,
+      "sha256": "76960f34d4bde3f2350012a3e2d3210ed80171daf837fb0caf3656ca07c8d3a7"
+    },
+    {
+      "file": "music/house-of-debts.mp3",
+      "url": "https://dark-veil.dimillian.chatgpt.site/music/house-of-debts.mp3",
+      "size": 2305296,
+      "sha256": "60846c214b078d08173b2688ec308f2502d777103c718d5293680f6389440221"
+    },
+    {
+      "file": "music/iron-hunger.mp3",
+      "url": "https://dark-veil.dimillian.chatgpt.site/music/iron-hunger.mp3",
+      "size": 2305296,
+      "sha256": "fb28582b86ef3834a32017684c68fac9ab67b4f6615ffb41719703de20f44c2d"
+    },
+    {
+      "file": "wasm.json",
+      "url": "https://dark-veil.dimillian.chatgpt.site/darkveil-wasm.json",
+      "size": 73,
+      "sha256": "15ae06768947afd866db936f55d4a9d10ef1874dec9649fc8100310c22eff589"
+    },
+    {
+      "file": "part0.wasm",
+      "url": "https://dark-veil.dimillian.chatgpt.site/darkveil_bg.0.wasm",
+      "size": 16777216,
+      "sha256": "7ce1db030faf8a5583e85c440ccc9242bdd5ce77bf33bd098bf3adf5c287806f"
+    },
+    {
+      "file": "part1.wasm",
+      "url": "https://dark-veil.dimillian.chatgpt.site/darkveil_bg.1.wasm",
+      "size": 12829289,
+      "sha256": "2585f1e7070efc64ea120c27f593f1e7b0bff55b05d1623d24a210609f606147"
+    }
+  ],
+  "version": "c3b283d68d282a7a9ed4",
+  "embedded": {
+    "source": ".local/dark-veil/reference.wasm",
+    "source_sha256": "6f2cd4deb58a5b660a3c20964e55a9f6b45f3f9ac231e3092fbba74a7353a0c7",
+    "assets": [
+      {
+        "file": "png-0061d1db.png",
+        "offset": 6410715,
+        "size": 3103621,
+        "sha256": "80b51c5bfc33db1207cdc438e273b730f7f2e31d656d27e80dd0406f01ff9eea",
+        "width": 1448,
+        "height": 1086,
+        "mode": "RGBA"
+      },
+      {
+        "file": "png-00912ee1.png",
+        "offset": 9514721,
+        "size": 1474279,
+        "sha256": "7c19075986a7974d7526b62321f4e05b34b0ee004441284a696268ea2fc364e3",
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA"
+      },
+      {
+        "file": "png-00a7afa4.png",
+        "offset": 10989476,
+        "size": 2331789,
+        "sha256": "56ee12915632aa6347a79ab14e21ac8e1ca76c2b8819b4491f15664db56e6761",
+        "width": 1586,
+        "height": 992,
+        "mode": "RGB"
+      },
+      {
+        "file": "png-00cb46e0.png",
+        "offset": 13321952,
+        "size": 3505499,
+        "sha256": "0b6700cf3598f65bd20ec65514fee9a03449efcf0de7f05d5dd2f2a3072564e5",
+        "width": 2170,
+        "height": 725,
+        "mode": "RGBA"
+      },
+      {
+        "file": "png-0110681c.png",
+        "offset": 17852444,
+        "size": 2596693,
+        "sha256": "a014f1c7613986af3e671f49f7ff4cd7f8e128aa34ecd6ebf805e75f9ae1d113",
+        "width": 2060,
+        "height": 763,
+        "mode": "RGBA"
+      },
+      {
+        "file": "png-013808bd.png",
+        "offset": 20449469,
+        "size": 2586306,
+        "sha256": "c99df76c68b2aa8f9edfcf48e01d60d55830fb0097c39738393d2ba79a7a8b9d",
+        "width": 1063,
+        "height": 1480,
+        "mode": "RGBA"
+      },
+      {
+        "file": "png-015f8958.png",
+        "offset": 23038296,
+        "size": 2416657,
+        "sha256": "9c350d80baf7597b65e59f5f4a9a1ef3d1b302cd145333ce4b6ad164547b5dd2",
+        "width": 1536,
+        "height": 1024,
+        "mode": "RGBA"
+      },
+      {
+        "file": "png-01846993.png",
+        "offset": 25454995,
+        "size": 1219980,
+        "sha256": "24f47872cf109aee2274ffdab257953bd91bb7f86f17f8ad2dab43b7095b6f76",
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGBA"
+      },
+      {
+        "file": "wav-010107f3.wav",
+        "offset": 16844787,
+        "size": 105884,
+        "sha256": "f71c72302ab3074b6ce79035ccbe91a8f55aa74dc12eeda8c345adf0c55935fd",
+        "channels": 1,
+        "sample_rate": 44100,
+        "frames": 52920,
+        "seconds": 1.2
+      },
+      {
+        "file": "wav-0102a58f.wav",
+        "offset": 16950671,
+        "size": 105884,
+        "sha256": "4c5d6af8f7ff16de5cd36987e8c9c4b67affbf342f789d34e101a13bfd503977",
+        "channels": 1,
+        "sample_rate": 44100,
+        "frames": 52920,
+        "seconds": 1.2
+      },
+      {
+        "file": "wav-0104432b.wav",
+        "offset": 17056555,
+        "size": 83834,
+        "sha256": "03aa98ffdb3ec30232fc4e052b41c62cc895d7b58a7a96cf0561bcd21f4d4640",
+        "channels": 1,
+        "sample_rate": 44100,
+        "frames": 41895,
+        "seconds": 0.95
+      },
+      {
+        "file": "wav-01058aa5.wav",
+        "offset": 17140389,
+        "size": 83834,
+        "sha256": "f8805f701f252e14f9af5fb262e759bb727a910ed3c4392c5705599158f7beab",
+        "channels": 1,
+        "sample_rate": 44100,
+        "frames": 41895,
+        "seconds": 0.95
+      },
+      {
+        "file": "wav-0106d21f.wav",
+        "offset": 17224223,
+        "size": 61784,
+        "sha256": "67b8465cffcbc9b51a6ee4480f86ee97aaab45c23610afc12df39184a2015ba6",
+        "channels": 1,
+        "sample_rate": 44100,
+        "frames": 30870,
+        "seconds": 0.7
+      },
+      {
+        "file": "wav-0107c377.wav",
+        "offset": 17286007,
+        "size": 32678,
+        "sha256": "63eca8c3e64eda0ca54f04d77de0c2306ee38b88e476f377497b82afa4884536",
+        "channels": 1,
+        "sample_rate": 44100,
+        "frames": 16317,
+        "seconds": 0.37
+      },
+      {
+        "file": "wav-01970b90.wav",
+        "offset": 26676112,
+        "size": 25448,
+        "sha256": "42421c0ce627fc8daf8f50b958f0362ccd06ad4ba053d47b765a0d1f4d4f6d5f",
+        "channels": 1,
+        "sample_rate": 44100,
+        "frames": 12702,
+        "seconds": 0.28802721088435373
+      },
+      {
+        "file": "wav-01976ef8.wav",
+        "offset": 26701560,
+        "size": 28268,
+        "sha256": "fc4bd8010a2549acf3ca572de70942f94ed8a6e2db5bbad4e17343063348a2fb",
+        "channels": 1,
+        "sample_rate": 44100,
+        "frames": 14112,
+        "seconds": 0.32
+      },
+      {
+        "file": "wav-0197dd64.wav",
+        "offset": 26729828,
+        "size": 24736,
+        "sha256": "5a74ade0139b958648d443bc06aba7d8b53afafb8f48485e9fc939896cd71c30",
+        "channels": 1,
+        "sample_rate": 44100,
+        "frames": 12346,
+        "seconds": 0.2799546485260771
+      },
+      {
+        "file": "ttf-0108ba31.ttf",
+        "offset": 17349169,
+        "size": 183242,
+        "sha256": "acc29249df9fa64f24d50c4e6f72302596343573e65d225d91fcb693c0273a8d",
+        "tables": [
+          "FFTM",
+          "GDEF",
+          "OS/2",
+          "cmap",
+          "cvt ",
+          "fpgm",
+          "gasp",
+          "glyf",
+          "head",
+          "hhea",
+          "hmtx",
+          "loca",
+          "maxp",
+          "name",
+          "post",
+          "prep"
+        ]
+      },
+      {
+        "file": "ttf-010b85fd.ttf",
+        "offset": 17532413,
+        "size": 153116,
+        "sha256": "cf4de751ada78ceac033dbe16a687742939995b77bc2a052ae17a4957958594d",
+        "tables": [
+          "DSIG",
+          "GDEF",
+          "GPOS",
+          "GSUB",
+          "OS/2",
+          "cmap",
+          "cvt ",
+          "fpgm",
+          "gasp",
+          "glyf",
+          "head",
+          "hhea",
+          "hmtx",
+          "loca",
+          "maxp",
+          "name",
+          "post",
+          "prep"
+        ]
+      },
+      {
+        "file": "ttf-010ddc20.ttf",
+        "offset": 17685536,
+        "size": 33044,
+        "sha256": "6b15f50b1b358512d922b5f11937af17e90704587e1d7fb009f1715d2d5dfa74",
+        "tables": [
+          "OS/2",
+          "cmap",
+          "gasp",
+          "glyf",
+          "head",
+          "hhea",
+          "hmtx",
+          "kern",
+          "loca",
+          "maxp",
+          "name",
+          "post",
+          "prep"
+        ]
+      },
+      {
+        "file": "ttf-010e5d3e.ttf",
+        "offset": 17718590,
+        "size": 125468,
+        "sha256": "f4d83d34d1f6c741193e4acf4b3dff9531e5a67b6aa65228d00a7db72a4e0f34",
+        "tables": [
+          "DSIG",
+          "GDEF",
+          "GPOS",
+          "GSUB",
+          "HVAR",
+          "OS/2",
+          "STAT",
+          "avar",
+          "cmap",
+          "fvar",
+          "gasp",
+          "glyf",
+          "gvar",
+          "head",
+          "hhea",
+          "hmtx",
+          "loca",
+          "maxp",
+          "name",
+          "post",
+          "prep"
+        ]
+      },
+      {
+        "file": "ttf-0198f14c.ttf",
+        "offset": 26800460,
+        "size": 309408,
+        "sha256": "15f55cc0c85a2988d2b4b3a8cdb5d77fdfbaf319e1bb5309d725db9818fb7125",
+        "tables": [
+          "DSIG",
+          "GSUB",
+          "OS/2",
+          "TTFA",
+          "cmap",
+          "cvt ",
+          "fpgm",
+          "gasp",
+          "glyf",
+          "head",
+          "hhea",
+          "hmtx",
+          "loca",
+          "maxp",
+          "name",
+          "post",
+          "prep"
+        ]
+      },
+      {
+        "file": "ttf-019da9ec.ttf",
+        "offset": 27109868,
+        "size": 418802,
+        "sha256": "4646bd9ee021cbc65d94a8fbf3a6d8eb8e42ce17a8bed3203d4aa43bbaccc943",
+        "tables": [
+          "GPOS",
+          "GSUB",
+          "OS/2",
+          "cmap",
+          "gasp",
+          "glyf",
+          "head",
+          "hhea",
+          "hmtx",
+          "loca",
+          "maxp",
+          "name",
+          "post"
+        ]
+      },
+      {
+        "file": "ttf-01a40de0.ttf",
+        "offset": 27528672,
+        "size": 361676,
+        "sha256": "80307b8da7649aa4ee4d484b232140e3ce1ec0ca093073d3c53c8f5a5ced7a70",
+        "tables": [
+          "GPOS",
+          "GSUB",
+          "OS/2",
+          "VDMX",
+          "cmap",
+          "cvt ",
+          "fpgm",
+          "gasp",
+          "glyf",
+          "hdmx",
+          "head",
+          "hhea",
+          "hmtx",
+          "loca",
+          "maxp",
+          "name",
+          "post",
+          "prep"
+        ]
+      },
+      {
+        "file": "ttf-01a992ac.ttf",
+        "offset": 27890348,
+        "size": 317864,
+        "sha256": "3a706840d2f888b83c184f7d41900dbaa0151a806c4d130cc88539d53fedef0a",
+        "tables": [
+          "OS/2",
+          "cmap",
+          "gasp",
+          "glyf",
+          "head",
+          "hhea",
+          "hmtx",
+          "loca",
+          "maxp",
+          "name",
+          "post"
+        ]
+      }
+    ]
+  }
+}
