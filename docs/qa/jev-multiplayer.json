@@ -1,0 +1,326 @@
+{
+  "date": "2026-10-06T04:31:07.489Z",
+  "mode": "Jev-directed live multiplayer",
+  "room": "qa-muw6l69j",
+  "invalidInputRejected": true,
+  "clients": 4,
+  "arena": {
+    "id": "qa-muw6l69j",
+    "phase": "finished",
+    "elapsed": 3.6666666666666634,
+    "radius": 37,
+    "winner": "Jev-1",
+    "round": 2
+  },
+  "players": [
+    {
+      "id": "c200ac97533eec118157b0119b8fe62cadd321903a9224aed547e773643687a0",
+      "name": "Jev-1",
+      "hero": 0,
+      "x": -7.765306009143212,
+      "y": 0,
+      "z": -10.40283267423478,
+      "vx": 9.960034768854884,
+      "vy": 0,
+      "vz": 5.743083250129496,
+      "yaw": -2.8986208425827726,
+      "pitch": 0.0451581193376458,
+      "hp": 28,
+      "ammo": 5,
+      "reload": 0,
+      "shotCd": 0.235,
+      "dashCd": 0,
+      "dashTime": 0,
+      "slideTime": 0,
+      "meleeCd": 0,
+      "guard": false,
+      "grounded": true,
+      "alive": true,
+      "seq": 180,
+      "shots": 11,
+      "hits": 9,
+      "distance": 41.56788578567209,
+      "dodges": 2,
+      "jumps": 1,
+      "combo": 3,
+      "lastHit": 3.6666666666666634
+    },
+    {
+      "id": "c2009162fd6b2f109aa7acb6bb948a1d73d725d6dbc933fb4e34adb58ac40f75",
+      "name": "Jev-2",
+      "hero": 1,
+      "x": -3.57185417217655,
+      "y": 1.4,
+      "z": 7.663185367281335,
+      "vx": -3.5473402210328047,
+      "vy": 2.333333333333334,
+      "vz": -3.6821473495965225,
+      "yaw": 0.27788658643046765,
+      "pitch": -0.08884713690410909,
+      "hp": 0,
+      "ammo": 6,
+      "reload": 0,
+      "shotCd": 0.0016666666666666913,
+      "dashCd": 0.11666666666666681,
+      "dashTime": 0,
+      "slideTime": 0,
+      "meleeCd": 0,
+      "guard": false,
+      "grounded": false,
+      "alive": false,
+      "seq": 179,
+      "shots": 10,
+      "hits": 6,
+      "distance": 37.46106303114726,
+      "dodges": 2,
+      "jumps": 2,
+      "combo": 6,
+      "lastHit": 1.6666666666666685
+    },
+    {
+      "id": "c2005486659b29c207fc50109df46de1967de15673beef61d0363a173390c622",
+      "name": "Jev-3",
+      "hero": 2,
+      "x": -1.5612651748953392,
+      "y": 0,
+      "z": 29.029423543855888,
+      "vx": -6.149619418633663,
+      "vy": 0,
+      "vz": 5.238671426861238,
+      "yaw": 0.3246795659539437,
+      "pitch": -0.05715953777055281,
+      "hp": 0,
+      "ammo": 2,
+      "reload": 0,
+      "shotCd": 0.0016666666666666913,
+      "dashCd": 0.016666666666666816,
+      "dashTime": 0,
+      "slideTime": 0,
+      "meleeCd": 0,
+      "guard": false,
+      "grounded": true,
+      "alive": false,
+      "seq": 100,
+      "shots": 6,
+      "hits": 3,
+      "distance": 14.755041202349366,
+      "dodges": 1,
+      "jumps": 0,
+      "combo": 3,
+      "lastHit": 1.400000000000001
+    },
+    {
+      "id": "c20047a1c7d1e7aea32b9259a758ba0ca8f0b4c0dad5369330fbba86b42abae3",
+      "name": "Jev-4",
+      "hero": 0,
+      "x": -6.29195491740987,
+      "y": 0,
+      "z": -34.00835708583635,
+      "vx": 0.513373629783012,
+      "vy": 0,
+      "vz": -7.478687480616248,
+      "yaw": -1.9106261362470909,
+      "pitch": -0.05528233525888928,
+      "hp": 0,
+      "ammo": 3,
+      "reload": 0,
+      "shotCd": 0.0016666666666666913,
+      "dashCd": 0.5833333333333334,
+      "dashTime": 0,
+      "slideTime": 0,
+      "meleeCd": 0,
+      "guard": false,
+      "grounded": true,
+      "alive": false,
+      "seq": 84,
+      "shots": 5,
+      "hits": 4,
+      "distance": 13.117611809165929,
+      "dodges": 1,
+      "jumps": 0,
+      "combo": 4,
+      "lastHit": 0.8666666666666666
+    }
+  ],
+  "destruction": [
+    [
+      {
+        "id": "screen-b",
+        "amount": 54
+      },
+      {
+        "id": "screen-a",
+        "amount": 36
+      },
+      {
+        "id": "crate-a",
+        "amount": 18
+      }
+    ],
+    [
+      {
+        "id": "screen-b",
+        "amount": 54
+      },
+      {
+        "id": "screen-a",
+        "amount": 36
+      },
+      {
+        "id": "crate-a",
+        "amount": 18
+      }
+    ],
+    [
+      {
+        "id": "screen-b",
+        "amount": 54
+      },
+      {
+        "id": "screen-a",
+        "amount": 36
+      },
+      {
+        "id": "crate-a",
+        "amount": 18
+      }
+    ],
+    [
+      {
+        "id": "screen-b",
+        "amount": 54
+      },
+      {
+        "id": "screen-a",
+        "amount": 36
+      },
+      {
+        "id": "crate-a",
+        "amount": 18
+      }
+    ]
+  ],
+  "events": {
+    "breaks": 0,
+    "shots": 32,
+    "hits": 22,
+    "parries": 0
+  },
+  "allClientsSeeFourPlayers": true,
+  "decisions": [
+    {
+      "time": 0,
+      "latencyMs": 347,
+      "model": "jev-1.13.0",
+      "answers": {
+        "p0": {
+          "type": "choice",
+          "choice": "flank",
+          "confidence": 0.78,
+          "probabilities": {
+            "retreat": 0.01,
+            "guard": 0,
+            "flank": 0.84,
+            "advance": 0.15
+          }
+        },
+        "p1": {
+          "type": "choice",
+          "choice": "flank",
+          "confidence": 0.79,
+          "probabilities": {
+            "retreat": 0.01,
+            "guard": 0,
+            "flank": 0.85,
+            "advance": 0.14
+          }
+        },
+        "p2": {
+          "type": "choice",
+          "choice": "flank",
+          "confidence": 0.79,
+          "probabilities": {
+            "retreat": 0.01,
+            "guard": 0,
+            "flank": 0.85,
+            "advance": 0.14
+          }
+        },
+        "p3": {
+          "type": "choice",
+          "choice": "flank",
+          "confidence": 0.81,
+          "probabilities": {
+            "retreat": 0.01,
+            "guard": 0,
+            "flank": 0.87,
+            "advance": 0.12
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 1078,
+        "output_tokens": 187
+      }
+    },
+    {
+      "time": 3.061,
+      "latencyMs": 206,
+      "model": "jev-1.13.0",
+      "answers": {
+        "p0": {
+          "type": "choice",
+          "choice": "flank",
+          "confidence": 0.66,
+          "probabilities": {
+            "retreat": 0.14,
+            "guard": 0.01,
+            "flank": 0.75,
+            "advance": 0.1
+          }
+        },
+        "p1": {
+          "type": "choice",
+          "choice": "flank",
+          "confidence": 0.77,
+          "probabilities": {
+            "retreat": 0.06,
+            "guard": 0.01,
+            "flank": 0.83,
+            "advance": 0.1
+          }
+        },
+        "p2": {
+          "type": "choice",
+          "choice": "flank",
+          "confidence": 0.41,
+          "probabilities": {
+            "retreat": 0.33,
+            "guard": 0.02,
+            "flank": 0.55,
+            "advance": 0.1
+          }
+        },
+        "p3": {
+          "type": "choice",
+          "choice": "flank",
+          "confidence": 0.46,
+          "probabilities": {
+            "retreat": 0.29,
+            "guard": 0.01,
+            "flank": 0.6,
+            "advance": 0.1
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 1205,
+        "output_tokens": 187
+      }
+    }
+  ],
+  "limitations": [
+    "Bots use state observations and reducers, not human perception.",
+    "These metrics measure responsiveness and decision opportunities, not proof of fun."
+  ]
+}

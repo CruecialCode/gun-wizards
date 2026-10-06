@@ -1,0 +1,199 @@
+{
+  "date": "2026-10-06T04:25:41.750Z",
+  "mode": "deterministic live multiplayer",
+  "room": "qa-muw6e6dq",
+  "invalidInputRejected": true,
+  "clients": 4,
+  "arena": {
+    "id": "qa-muw6e6dq",
+    "phase": "finished",
+    "elapsed": 4.333333333333328,
+    "radius": 37,
+    "winner": "Jev-1",
+    "round": 2
+  },
+  "players": [
+    {
+      "id": "c2007739f6bf81cb78abe83d82b6b90ca210ae6dd7a055199eb26a495edf2523",
+      "name": "Jev-1",
+      "hero": 0,
+      "x": 9.527661284548632,
+      "y": 0,
+      "z": -0.41574679531633685,
+      "vx": -1.047268584652706e-8,
+      "vy": 0,
+      "vz": -1.701777990774427e-7,
+      "yaw": -0.5362108575641819,
+      "pitch": -0.05694165460168364,
+      "hp": 64,
+      "ammo": 7,
+      "reload": 0,
+      "shotCd": 0.235,
+      "dashCd": 0,
+      "dashTime": 0,
+      "slideTime": 0,
+      "meleeCd": 0,
+      "guard": false,
+      "grounded": true,
+      "alive": true,
+      "seq": 210,
+      "shots": 10,
+      "hits": 9,
+      "distance": 32.97311851612467,
+      "dodges": 2,
+      "jumps": 1,
+      "combo": 9,
+      "lastHit": 4.333333333333328
+    },
+    {
+      "id": "c20055fc1e7671df2965db8f748a82873816db6091e28e6d5c1162de04d58956",
+      "name": "Jev-2",
+      "hero": 1,
+      "x": 14.56904423659814,
+      "y": 0,
+      "z": -8.587406660922419,
+      "vx": 4.893161271005846,
+      "vy": 0,
+      "vz": 1.1073713150848428,
+      "yaw": 2.611606026615961,
+      "pitch": -0.05634545443849397,
+      "hp": 0,
+      "ammo": 7,
+      "reload": 0.01666666666666637,
+      "shotCd": 0,
+      "dashCd": 0,
+      "dashTime": 0,
+      "slideTime": 0,
+      "meleeCd": 0,
+      "guard": false,
+      "grounded": true,
+      "alive": false,
+      "seq": 209,
+      "shots": 9,
+      "hits": 6,
+      "distance": 42.86127874244942,
+      "dodges": 2,
+      "jumps": 1,
+      "combo": 6,
+      "lastHit": 1.9000000000000026
+    },
+    {
+      "id": "c2001ae4d1fab864df7e0416b7b3c0a173e753127eadb6c260a1b8400d20b3cf",
+      "name": "Jev-3",
+      "hero": 2,
+      "x": 0.2636829378914719,
+      "y": 0,
+      "z": -20.49751658061696,
+      "vx": -2.9821888321781396,
+      "vy": 0,
+      "vz": 0.17034424185938876,
+      "yaw": -1.6184191566883652,
+      "pitch": -0.1179711062461754,
+      "hp": 0,
+      "ammo": 1,
+      "reload": 0,
+      "shotCd": 0.0016666666666666913,
+      "dashCd": 0,
+      "dashTime": 0,
+      "slideTime": 0,
+      "meleeCd": 0,
+      "guard": false,
+      "grounded": true,
+      "alive": false,
+      "seq": 112,
+      "shots": 7,
+      "hits": 3,
+      "distance": 9.051134012328518,
+      "dodges": 1,
+      "jumps": 0,
+      "combo": 3,
+      "lastHit": 1.633333333333335
+    },
+    {
+      "id": "c20099a2dd586e367b9c7bcc2fef01373f5d68f17df8407508d1c5f3534b02ef",
+      "name": "Jev-4",
+      "hero": 0,
+      "x": -3.109405516418078,
+      "y": 0,
+      "z": 14.819831992423568,
+      "vx": 5.842015697506483,
+      "vy": 0,
+      "vz": -1.942678780406513,
+      "yaw": -2.5557017819241143,
+      "pitch": -0.0530428131191084,
+      "hp": 0,
+      "ammo": 3,
+      "reload": 0,
+      "shotCd": 0.035000000000000024,
+      "dashCd": 0.6166666666666667,
+      "dashTime": 0,
+      "slideTime": 0,
+      "meleeCd": 0,
+      "guard": false,
+      "grounded": true,
+      "alive": false,
+      "seq": 84,
+      "shots": 5,
+      "hits": 2,
+      "distance": 12.824607947383845,
+      "dodges": 1,
+      "jumps": 0,
+      "combo": 2,
+      "lastHit": 0.3333333333333333
+    }
+  ],
+  "destruction": [
+    [
+      {
+        "id": "screen-a",
+        "amount": 18
+      },
+      {
+        "id": "screen-b",
+        "amount": 18
+      }
+    ],
+    [
+      {
+        "id": "screen-a",
+        "amount": 18
+      },
+      {
+        "id": "screen-b",
+        "amount": 18
+      }
+    ],
+    [
+      {
+        "id": "screen-a",
+        "amount": 18
+      },
+      {
+        "id": "screen-b",
+        "amount": 18
+      }
+    ],
+    [
+      {
+        "id": "screen-a",
+        "amount": 18
+      },
+      {
+        "id": "screen-b",
+        "amount": 18
+      }
+    ]
+  ],
+  "events": {
+    "breaks": 0,
+    "shots": 31,
+    "hits": 20,
+    "parries": 0
+  },
+  "allClientsSeeFourPlayers": true,
+  "decisions": [],
+  "limitations": [
+    "Bots use state observations and reducers, not human perception.",
+    "These metrics measure responsiveness and decision opportunities, not proof of fun."
+  ]
+}

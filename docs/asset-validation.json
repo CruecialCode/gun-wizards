@@ -1,0 +1,27 @@
+{
+  "rook": {
+    "bones": 41,
+    "clips": [
+      "idle",
+      "run",
+      "jump"
+    ],
+    "triangles": 17870
+  },
+  "vesper": {
+    "bones": 41,
+    "clips": [
+      "idle",
+      "run"
+    ],
+    "triangles": 17674
+  },
+  "miso": {
+    "bones": 41,
+    "clips": [
+      "idle",
+      "run"
+    ],
+    "triangles": 17296
+  }
+}

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.local/
+.env
+.env.*
+!.env.example
+.DS_Store
+server/spacetimedb/dist/
+server/spacetimedb/node_modules/
+server/spacetimedb/target/
+*.log

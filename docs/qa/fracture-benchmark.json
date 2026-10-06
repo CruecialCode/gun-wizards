@@ -1,0 +1,68 @@
+{
+  "measuredAt": "2026-10-06T04:07:23.734Z",
+  "library": "@dgreenheck/three-pinata 2.0.1",
+  "cpu": "Apple M1 Max",
+  "runtime": "v24.14.1",
+  "samplesPerCase": 8,
+  "limitations": [
+    "Node CPU only; no rendering, physics, networking or mobile measurement.",
+    "Simple watertight box, not a detailed building.",
+    "Same-process repeatability does not prove cross-platform determinism."
+  ],
+  "results": [
+    {
+      "mode": "2.5D",
+      "requestedFragments": 12,
+      "actualFragments": 12,
+      "triangles": 914,
+      "medianMs": 5.56,
+      "maxMs": 7.01,
+      "sameRuntimeRepeatable": true
+    },
+    {
+      "mode": "2.5D",
+      "requestedFragments": 24,
+      "actualFragments": 24,
+      "triangles": 2836,
+      "medianMs": 16.39,
+      "maxMs": 17.62,
+      "sameRuntimeRepeatable": true
+    },
+    {
+      "mode": "2.5D",
+      "requestedFragments": 48,
+      "actualFragments": 48,
+      "triangles": 8391,
+      "medianMs": 62.8,
+      "maxMs": 66.43,
+      "sameRuntimeRepeatable": true
+    },
+    {
+      "mode": "3D",
+      "requestedFragments": 12,
+      "actualFragments": 12,
+      "triangles": 858,
+      "medianMs": 3.88,
+      "maxMs": 3.97,
+      "sameRuntimeRepeatable": true
+    },
+    {
+      "mode": "3D",
+      "requestedFragments": 24,
+      "actualFragments": 24,
+      "triangles": 3047,
+      "medianMs": 14.99,
+      "maxMs": 15.38,
+      "sameRuntimeRepeatable": true
+    },
+    {
+      "mode": "3D",
+      "requestedFragments": 48,
+      "actualFragments": 48,
+      "triangles": 11067,
+      "medianMs": 69.47,
+      "maxMs": 72.28,
+      "sameRuntimeRepeatable": true
+    }
+  ]
+}

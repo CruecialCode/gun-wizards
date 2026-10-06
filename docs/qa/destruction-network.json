@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-06T04:31:55.896Z",
+  "room": "break-muw6m8s2",
+  "server": "wss://maincloud.spacetimedb.com",
+  "twoClientsAgree": true,
+  "lateSubscriberReceivesBreak": true,
+  "rematchRestoresCover": true
+}

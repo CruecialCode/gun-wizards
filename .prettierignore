@@ -1,0 +1,9 @@
+node_modules
+.local
+dist
+src/module_bindings
+public
+docs/qa
+server/spacetimedb/dist
+package-lock.json
+server/spacetimedb/package-lock.json
